@@ -1,0 +1,26 @@
+
+    /** As confirmed by email, I use Java programming language to solve this questions. */
+
+
+    public int[] solution(int[] nums, int target) {
+	// A map to store each number as key, and its index as value.
+        Map<Integer, Integer> map = new HashMap<>();
+
+
+        for (int i = 0; i < nums.length; i++) {
+            int x = target - nums[i];
+
+	    // If the map has x, then return an array of the index of
+	    // the current number (i) and the index of (x) in the map.
+            if (map.containsKey(x)) {
+                return new int[] { i, map.get(x) };
+            }
+            
+	    // Add the current number to the map with its index.
+            map.put(nums[i], i);
+        }
+
+	// If there is no solution, we return null.
+        return null;
+    }
+
